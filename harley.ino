@@ -5,7 +5,7 @@
 SoftwareSerial mySerial(7,8); // RX, TX
 
 const int alarmPin = 4;
-const int relayPin = 0;
+const int relayPin = A4;
 int Xacc, Yacc, Zacc, threshold = 0, thresholdSET = 25;
 
 long debouncing_time = 15; //Debouncing Time in Milliseconds
@@ -87,8 +87,8 @@ void loop() {
   Serial.println("alarm!!!");
     mySerial.begin(9600);
     delay(500);
-    mySerial.println("ATD9845730447;"); // ATDxxxxxxxxxx; -- watch out here for semicolon at the end!!
-  Serial.println("Called ATD9845730447");
+    mySerial.println("ATDxxxxxxxxx;"); // ATDxxxxxxxxxx YOU NEED TO ADD YOUR NUMBERE HERE; -- watch out here for semicolon at the end!!
+  Serial.println("Called ATDXXXXXXXX");//YOU NEED TO ADD YOUR NUMBER
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("The sensor sensed");
@@ -99,7 +99,7 @@ void loop() {
      lcd.setCursor(0, 0);
     lcd.print("GSM modem calling");
     lcd.setCursor(0,1);
-    lcd.print("NO +919845730447");
+    lcd.print("NO XXXXXXXX");//YOU NEED TO ADD YOUR NUMBER
     delay(7000);
     digitalWrite(relayPin, HIGH);
     digitalWrite(alarmPin,LOW);
